@@ -1,0 +1,32 @@
+{
+    "john_doe": {
+        "likes": 0.85,
+        "comments": 0.75,
+        "shares": 0.65,
+        "saves": 0.55
+    },
+    "jane_smith": {
+        "likes": 0.45,
+        "comments": 0.35,
+        "shares": 0.25,
+        "saves": 0.15
+    },
+    "bob_wilson": {
+        "likes": 0.95,
+        "comments": 0.85,
+        "shares": 0.75,
+        "saves": 0.65
+    },
+    "alice_jones": {
+        "likes": 0.25,
+        "comments": 0.15,
+        "shares": 0.05,
+        "saves": 0.01
+    },
+    "charlie_brown": {
+        "likes": 0.75,
+        "comments": 0.65,
+        "shares": 0.55,
+        "saves": 0.45
+    }
+} 

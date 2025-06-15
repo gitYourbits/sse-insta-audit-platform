@@ -1,0 +1,27 @@
+{
+    "john_doe": {
+        "risk_score": 0.15,
+        "analysis": "Active and engaged follower with consistent interaction",
+        "confidence": 0.95
+    },
+    "jane_smith": {
+        "risk_score": 0.45,
+        "analysis": "Moderate engagement with occasional interaction",
+        "confidence": 0.85
+    },
+    "bob_wilson": {
+        "risk_score": 0.05,
+        "analysis": "Highly engaged follower with strong community presence",
+        "confidence": 0.98
+    },
+    "alice_jones": {
+        "risk_score": 0.85,
+        "analysis": "Low engagement and suspicious activity patterns",
+        "confidence": 0.75
+    },
+    "charlie_brown": {
+        "risk_score": 0.35,
+        "analysis": "Regular follower with normal engagement patterns",
+        "confidence": 0.90
+    }
+} 

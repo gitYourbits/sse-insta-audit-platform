@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: instagram-follower-audit
+Version: 0.1.0
+Summary: Instagram Follower Audit Tool
+Requires-Python: >=3.8

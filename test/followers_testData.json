@@ -1,0 +1,52 @@
+[
+    {
+        "username": "jane_smith",
+        "id": "123456789",
+        "profile_pic_url": "https://example.com/profile1.jpg",
+        "bio": "Digital marketing professional | Tech enthusiast | Coffee lover",
+        "is_public": true,
+        "following": ["main_account", "core_user1", "core_user2"],
+        "following_count": 450,
+        "category": "high_engagement_follower"
+    },
+    {
+        "username": "bob_wilson",
+        "id": "987654321",
+        "profile_pic_url": "https://example.com/profile2.jpg",
+        "bio": "Just here for the memes",
+        "is_public": true,
+        "following": [],
+        "following_count": 2000,
+        "category": "low_engagement_follower"
+    },
+    {
+        "username": "private_user",
+        "id": "456789123",
+        "profile_pic_url": "https://example.com/profile3.jpg",
+        "bio": "Private account",
+        "is_public": false,
+        "following": ["main_account"],
+        "following_count": 150,
+        "category": "private_account"
+    },
+    {
+        "username": "mass_follow_user",
+        "id": "789123456",
+        "profile_pic_url": "https://example.com/profile4.jpg",
+        "bio": "Follow for follow",
+        "is_public": true,
+        "following": [],
+        "following_count": 5000,
+        "category": "mass_follower"
+    },
+    {
+        "username": "community_member",
+        "id": "321654987",
+        "profile_pic_url": "https://example.com/profile5.jpg",
+        "bio": "Active community member | Regular contributor",
+        "is_public": true,
+        "following": ["main_account", "core_user1", "core_user2", "core_user3"],
+        "following_count": 300,
+        "category": "core_community_member"
+    }
+]
