@@ -2,6 +2,17 @@
 
 A powerful tool for analyzing and managing your Instagram followers, helping you identify engaged followers and potential fake accounts.
 
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Core Features](#core-features)
+- [System Architecture](#system-architecture)
+- [Configuration](#configuration)
+- [Performance & Security](#performance--security)
+- [Troubleshooting](#troubleshooting)
+- [Development](#development)
+
 ## Features
 
 - **Engagement Analysis**: Evaluate follower engagement based on likes, comments, shares, and saves
@@ -31,7 +42,7 @@ source env/bin/activate  # On Windows: env\Scripts\activate
 pip install -e .
 ```
 
-## Usage
+## Quick Start
 
 1. Run the application:
 ```bash
@@ -57,11 +68,13 @@ python run.py
 
 4. Click "Start Audit" to begin the analysis
 
-## Evaluation Criteria
+## Core Features
+
+### Evaluation Criteria
 
 The tool evaluates followers based on:
 
-### Engagement Score (0-1)
+#### Engagement Score (0-1)
 - Likes (weighted)
 - Comments (weighted)
 - Shares (weighted)
@@ -69,92 +82,17 @@ The tool evaluates followers based on:
 - Last interaction date
 - Interaction count
 
-### Risk Score (0-1)
+#### Risk Score (0-1)
 - Profile authenticity
 - Following patterns
 - Account age
 - Activity patterns
 - Suspicious behavior indicators
 
-### Actions
+#### Actions
 - **KEEP**: High engagement (≥0.7) and low risk (≤0.3)
 - **MONITOR**: Moderate engagement (≥0.5) and moderate risk (≤0.5)
 - **REMOVE**: Low engagement (≤0.3) or high risk (≥0.7)
-
-## Project Structure
-
-```
-instagram-follower-audit/
-├── app/
-│   ├── core/
-│   │   ├── engagement.py    # Engagement analysis
-│   │   ├── profile.py      # Profile analysis
-│   │   ├── workflow.py     # Main workflow control
-│   │   └── logger.py       # Logging functionality
-│   ├── ui/
-│   │   ├── dashboard.py    # Main dashboard
-│   │   └── components.py   # UI components
-│   └── utils/
-│       └── helpers.py      # Utility functions
-├── data/
-│   ├── mock_engagement.json
-│   └── mock_profiles.json
-├── logs/                   # Audit logs
-├── tests/                  # Test data
-├── pyproject.toml
-├── setup.py
-└── run.py
-```
-
-## Development
-
-### Running Tests
-```bash
-pytest tests/
-```
-
-### Adding New Features
-1. Create a new branch
-2. Implement your changes
-3. Add tests
-4. Submit a pull request
-
-### Code Style
-- Follow PEP 8 guidelines
-- Use type hints
-- Document all functions and classes
-- Write meaningful commit messages
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Streamlit for the web interface
-- Python's asyncio for async operations
-- The Instagram community for feedback and suggestions
-
-## Advanced Usage
-
-### Configuration
-
-The tool can be configured through environment variables or a config file:
-
-```bash
-# Environment Variables
-INSTAGRAM_API_KEY=your_api_key
-LOG_LEVEL=INFO
-MAX_RETRIES=3
-```
 
 ### Custom Scoring
 
@@ -168,19 +106,6 @@ ENGAGEMENT_WEIGHTS = {
     'saves': 0.1
 }
 ```
-
-### Logging Configuration
-
-The system uses a hierarchical logging structure:
-
-```
-logs/
-├── audit.log      # Main audit logs
-├── error.log      # Error logs
-└── debug.log      # Debug information
-```
-
-Log levels can be configured in `app/core/logger.py`.
 
 ## System Architecture
 
@@ -227,26 +152,34 @@ Log levels can be configured in `app/core/logger.py`.
    Results → Logging → Dashboard Update → Export Options
    ```
 
-### Error Handling
+## Configuration
 
-The system implements a robust error handling strategy:
+### Environment Variables
 
-1. **Retry Mechanism**
-   - Configurable retry attempts
-   - Exponential backoff
-   - Error categorization
+```bash
+# API Configuration
+INSTAGRAM_API_KEY=your_api_key
+MAX_RETRIES=3
 
-2. **Fallback Options**
-   - Default values for missing data
-   - Graceful degradation
-   - Error recovery procedures
+# Logging
+LOG_LEVEL=INFO
 
-3. **Error Logging**
-   - Detailed error tracking
-   - Stack trace preservation
-   - Error categorization
+# Performance
+BATCH_SIZE=100
+RATE_LIMIT_REQUESTS=100
+RATE_LIMIT_PERIOD=3600
+```
 
-## Performance Optimization
+### Logging Structure
+
+```
+logs/
+├── audit.log      # Main audit logs
+├── error.log      # Error logs
+└── debug.log      # Debug information
+```
+
+## Performance & Security
 
 ### Async Processing
 
@@ -258,50 +191,20 @@ async def process_followers(followers):
     return await asyncio.gather(*tasks)
 ```
 
-### Caching
+### Security Features
 
-Implements caching for frequently accessed data:
-- Profile data caching
-- Engagement metrics caching
-- Result caching
-
-### Rate Limiting
-
-Implements rate limiting to prevent API throttling:
-- Configurable rate limits
-- Queue management
-- Priority processing
-
-## Security Considerations
-
-### Data Protection
-
-1. **Input Validation**
+1. **Data Protection**
    - JSON schema validation
    - Data sanitization
    - Type checking
+   - PII handling
+   - Data encryption
 
 2. **Access Control**
    - API key management
    - Rate limiting
    - IP restrictions
-
-3. **Data Privacy**
-   - PII handling
-   - Data encryption
    - Secure storage
-
-### Best Practices
-
-1. **API Security**
-   - Use environment variables
-   - Implement API key rotation
-   - Monitor API usage
-
-2. **Data Handling**
-   - Regular data cleanup
-   - Secure data transmission
-   - Proper error handling
 
 ## Troubleshooting
 
@@ -339,9 +242,58 @@ LOG_LEVEL=DEBUG
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-## API Reference
+## Development
 
-### Core Functions
+### Project Structure
+
+```
+instagram-follower-audit/
+├── app/
+│   ├── core/
+│   │   ├── engagement.py    # Engagement analysis
+│   │   ├── profile.py      # Profile analysis
+│   │   ├── workflow.py     # Main workflow control
+│   │   └── logger.py       # Logging functionality
+│   ├── ui/
+│   │   ├── dashboard.py    # Main dashboard
+│   │   └── components.py   # UI components
+│   └── utils/
+│       └── helpers.py      # Utility functions
+├── data/
+│   ├── mock_engagement.json
+│   └── mock_profiles.json
+├── logs/                   # Audit logs
+├── tests/                  # Test data
+├── pyproject.toml
+├── setup.py
+└── run.py
+```
+
+### Development Setup
+
+1. **Local Environment**
+   ```bash
+   # Create virtual environment
+   python -m venv env
+   source env/bin/activate
+   
+   # Install dependencies
+   pip install -e ".[dev]"
+   
+   # Run tests
+   pytest
+   ```
+
+2. **Code Standards**
+   - Follow PEP 8
+   - Use type hints
+   - Write docstrings
+   - Include comments
+   - Run pre-commit hooks
+
+### API Reference
+
+#### Core Functions
 
 1. **Profile Analysis**
    ```python
@@ -383,61 +335,4 @@ logging.basicConfig(level=logging.DEBUG)
        Returns:
            AuditResult with complete analysis
        """
-   ```
-
-## Contributing Guidelines
-
-### Code Standards
-
-1. **Style Guide**
-   - Follow PEP 8
-   - Use type hints
-   - Write docstrings
-   - Include comments
-
-2. **Testing Requirements**
-   - Unit tests
-   - Integration tests
-   - Performance tests
-   - Documentation tests
-
-3. **Pull Request Process**
-   - Create feature branch
-   - Write tests
-   - Update documentation
-   - Submit PR
-
-### Development Setup
-
-1. **Local Environment**
-   ```bash
-   # Create virtual environment
-   python -m venv env
-   source env/bin/activate
-   
-   # Install dependencies
-   pip install -e ".[dev]"
-   
-   # Run tests
-   pytest
-   ```
-
-2. **Pre-commit Hooks**
-   ```bash
-   # Install pre-commit hooks
-   pre-commit install
-   
-   # Run checks
-   pre-commit run --all-files
-   ```
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Streamlit for the web interface
-- Python's asyncio for async operations
-- The Instagram community for feedback and suggestions
-- Contributors and maintainers 
+   ``` 
